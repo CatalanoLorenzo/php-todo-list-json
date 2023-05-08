@@ -1,4 +1,4 @@
-const { createApp } = Vue;
+/* const { createApp } = Vue;
 const app = createApp({
   data() {
     return {
@@ -24,7 +24,9 @@ const app = createApp({
       {
         headers: {'Content-Type': 'multipart/form-data'}
       })
-    .this
+      .catch(error =>{
+        console.error(error.message);
+      })
    }
     },
     mounted() {
@@ -33,4 +35,4 @@ const app = createApp({
   
 })
 
-app.mount('#app')
+app.mount('#app') */

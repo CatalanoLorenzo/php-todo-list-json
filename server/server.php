@@ -14,4 +14,6 @@ if (!empty($add_element)) {
 
     add_element_into_array_json($array_dati_json, $add_element);
 }
+header("Access-Control-Allow-Origin: http://localhost:5173");
+header("Access-Control-Allow-Headers: X-Requested-With");
 ?>
