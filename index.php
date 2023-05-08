@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 function add_element_into_array_json($array_dati_json, $new_element)
 {
     array_unshift($array_dati_json, $new_element);
@@ -13,7 +13,7 @@ if (!empty($add_element)) {
 
     add_element_into_array_json($array_dati_json, $add_element);
 }
-?>
+?> -->
 <!doctype html>
 <html lang="en">
 
@@ -38,19 +38,15 @@ if (!empty($add_element)) {
         <div class="row">
             <div class="col">
                 <div id="app">
-                    {{ message }}
-                </div>
-                <div class="mb-3">
-                    <form action="" method="get">
-                        <label for="add_element" class="form-label"></label>
-                        <textarea class="form-control" name="add_element" id="add_element" rows="3"></textarea>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                    <ul>
-                        <?php foreach ($array_dati_json as $element) : ?>
-                            <li><?= $element ?></li>
-                        <?php endforeach ?>
-                    </ul>
+                    <div class="mb-3">
+                        <form action="" method="get">
+                            <label for="add_element" class="form-label"></label>
+                            <input type="text" class="form-control" name="add_element" id="add_element" rows="3" v-model='add_element' @keyup.enter='add_element_by_axios(url,add_element)'></input>
+                        </form>
+                        <ul>
+                            <li v-for='element in list'>{{element}}</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -59,6 +55,8 @@ if (!empty($add_element)) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.5/axios.min.js" integrity="sha512-nnNHpffPSgINrsR8ZAIgFUIMexORL5tPwsfktOTxVYSv+AUAILuFYWES8IHl+hhIhpFGlKvWFiz9ZEusrPcSBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- CDN VUEJS -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+     <!-- link script -->
+     <script src="./main.js"></script>
     <!-- CDN BOOTSTRAP -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
     </script>
