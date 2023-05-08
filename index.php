@@ -5,14 +5,13 @@ function add_element_into_array_json($array_dati_json,$new_element)
     $new_stringa_dati_json = json_encode($array_dati_json);
     file_put_contents('dati_json.json', $new_stringa_dati_json);
 }
-$add_element =strval($_GET['add_element']) ;
+$add_element = $_GET['add_element'] ;
 $stringa_dati_json = file_get_contents('dati_json.json');
 #header('Content-Type: application/json');
 $array_dati_json = json_decode($stringa_dati_json);
-var_dump($array_dati_json);
 if (!empty($add_element)) {
-    echo $add_element ;
-    add_element_into_array_json($array_dati_json,$new_element);
+
+    add_element_into_array_json($array_dati_json,$add_element);
 }
 ?>
 <!doctype html>
