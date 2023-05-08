@@ -4,7 +4,7 @@ export default {
   data() {
     return {
       urlServer: 'http://localhost:81/PHP/php-todo-list-json/server/server.php',
-      list: '',
+      list: [],
       add_element: null
     }
   },
@@ -12,24 +12,29 @@ export default {
     get_element_by_axios(url) {
       axios.get(url)
         .then(res => {
-          const posts = res.data;
-          console.log(posts);
+          
           this.list = res.data
         })
         .catch(error => {
           console.error(error.message);
         })
     },
-    add_element_by_axios(url,) {
-      const data ={
-        newelement : this.add_element
-      }
+    add_element_by_axios(url) {
+    
+      const data = {
+        add_element: this.add_element
+            }
       axios.post(url, data,
         {
           headers: { 'Content-Type': 'multipart/form-data' }
         })
         .then(response =>{
+          
+          this.list = response.data
           console.log(response);
+        })
+        .catch(error => {
+          console.error(error.message);
         })
         
     }
@@ -48,9 +53,9 @@ export default {
                 <div id="app">
                     <div class="mb-3">
                         
-                            <input type="text" class="form-control" name="add_element" id="add_element" rows="3" v-model='add_element' @keyup.enter='add_element_by_axios(url)'>
+                            <input type="text" class="form-control" name="add_element" id="add_element" rows="3" v-model='add_element' @keyup.enter='add_element_by_axios(urlServer)'>
                         
-                        <ul>
+                        <ul v-if="list.length > 0">
                             <li v-for='element in list'>{{element}}</li>
                         </ul>
                     </div>
