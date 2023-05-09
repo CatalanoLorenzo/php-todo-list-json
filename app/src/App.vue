@@ -4,6 +4,7 @@ export default {
   data() {
     return {
       urlServer: 'http://localhost:81/PHP/php-todo-list-json/server/server.php',
+      url_add_element: 'http://localhost:81/PHP/php-todo-list-json/server/add_element.php' ,
       list: [],
       add_element: null
     }
@@ -53,7 +54,7 @@ export default {
                 <div id="app">
                     <div class="mb-3">
                         
-                            <input type="text" class="form-control" name="add_element" id="add_element" rows="3" v-model='add_element' @keyup.enter='add_element_by_axios(urlServer)'>
+                            <input type="text" class="form-control" name="add_element" id="add_element" rows="3" v-model='add_element' @keyup.enter='add_element_by_axios(url_add_element)'>
                         
                         <ul v-if="list.length > 0">
                             <li v-for='element in list'>{{element}}</li>
