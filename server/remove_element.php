@@ -2,16 +2,11 @@
 
 $stringa_dati_json = file_get_contents('dati_json.json');
 
-$element_array = json_decode($stringa_dati_json,true);
+$element_array = json_decode($stringa_dati_json, true);
 
-$add_text = $_POST['add_element'];
+$remove_element_index = $_POST['remove_element_index'];
 
-$add_element = [ 
-    "text" => $add_text,
-    "underscore" => false,
-];
-
-array_unshift($element_array, $add_element);
+unset($element_array[$remove_element_index]);
 
 $new_stringa_dati_json = json_encode($element_array);
 
