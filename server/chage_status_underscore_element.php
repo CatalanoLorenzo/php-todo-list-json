@@ -2,13 +2,13 @@
 
 $stringa_dati_json = file_get_contents('dati_json.json');
 
-$element_array = json_decode($stringa_dati_json, true);
+$elements_array = json_decode($stringa_dati_json, true);
 
-$remove_element_index = $_POST['remove_element_index'];
+$chage_status_element_index = $_POST['status_chage_element_index'];
 
-array_splice($element_array , $remove_element_index , 1);
+$elements_array [$chage_status_element_index]["underscore"] = !$elements_array [$chage_status_element_index]["underscore"];
 
-$new_stringa_dati_json = json_encode($element_array);
+$new_stringa_dati_json = json_encode($elements_array);
 
 file_put_contents('dati_json.json', $new_stringa_dati_json);
 

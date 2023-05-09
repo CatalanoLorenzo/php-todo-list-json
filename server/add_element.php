@@ -2,7 +2,7 @@
 
 $stringa_dati_json = file_get_contents('dati_json.json');
 
-$element_array = json_decode($stringa_dati_json,true);
+$element_array = json_decode($stringa_dati_json, true);
 
 $add_text = $_POST['add_element'];
 
